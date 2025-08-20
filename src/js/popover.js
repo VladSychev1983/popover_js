@@ -48,7 +48,7 @@ export default class PopOver {
         popOver.setAttribute("aria-hidden", "true");
       }
     });
-    this.getPosition(popOver);
+    //this.getPosition(popOver);
   }
 
   getPosition(popOver) {
@@ -73,6 +73,13 @@ export default class PopOver {
 
   togglePopover(popOver) {
     const showIs = popOver.classList.toggle("show");
-    popOver.setAttribute("aria-hidden", !showIs);
+    if (showIs) {
+      this.getPosition(popOver);
+      popOver.setAttribute("aria-hidden", "false");
+      popOver.style.display = "block";
+    } else {
+      popOver.setAttribute("aria-hidden", "true");
+      popOver.style.display = "none";
+    }
   }
 }
