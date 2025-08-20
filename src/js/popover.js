@@ -34,7 +34,6 @@ export default class PopOver {
     //обработка клика по кнопке.
     this.button.addEventListener("click", () => {
       this.togglePopover(popOver);
-      console.log("button clicked");
     });
 
     //обработка клика вне кнопки.
@@ -48,7 +47,6 @@ export default class PopOver {
         popOver.setAttribute("aria-hidden", "true");
       }
     });
-    //this.getPosition(popOver);
   }
 
   getPosition(popOver) {
