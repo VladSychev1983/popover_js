@@ -49,6 +49,29 @@ export default class PopOver {
         popOver.setAttribute("aria-hidden", "true");
       }
     });
+
+    //закрытие по esc
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && popOver.classList.contains("show")) {
+        this.togglePopover(popOver);
+        this.button.focus();
+      }
+    });
+    //обновляем позицию popover при изменении размера окна.
+    let resizeTimeout;
+
+    const handlerResize = () => {
+      console.log("resize event");
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(() => {
+        if (popOver.classList.contains("show")) {
+          this.getPosition(popOver);
+        }
+      }, 50);
+    };
+
+    window.addEventListener("resize", handlerResize);
+    window.addEventListener("scroll", handlerResize);
   }
 
   getPosition(popOver) {
