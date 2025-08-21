@@ -15,7 +15,7 @@ export default [
     },
   },
   {
-    ignores: ["dist/*", "coverage/*"],
+    ignores: ["dist/*", "coverage/*", "jest-setup.js"],
   },
   {
     files: ["**/*.test.js"],
