@@ -8,7 +8,7 @@
     "build": "webpack --config webpack.prod.js",
     "lint": "eslint . --fix",
     "test": "jest --testPathPattern=./src/",
-    "e2e": "jest --testPathPattern=./e2e/ --runInBand",
+    "e2e": "jest --testPathPattern=./e2e/ --config ./jest.e2e.config.js --runInBand",
     "coverage": "jest --testPathPattern=./src/ --coverage",
     "preshow:coverage": "npm run coverage",
     "show:coverage": "live-server coverage/lcov-report",
