@@ -1,6 +1,7 @@
 export default class PopOver {
   constructor(container) {
     this.container = container;
+    this.body = document.querySelector("body");
   }
   renderWidget() {
     return `
@@ -25,12 +26,13 @@ export default class PopOver {
     this.button = this.container.querySelector("button");
     const popoverContent = this.button.getAttribute("data-content");
     const popoverTitle = this.button.getAttribute("data-original-title");
-    const popWrapper = this.container.querySelector("#popover-wrapper");
-    popWrapper.insertAdjacentHTML(
+
+    //добавляем popover в body.
+    this.body.insertAdjacentHTML(
       "beforeend",
       this.renderPopover(popoverTitle, popoverContent),
     );
-    const popOver = this.container.querySelector("#myPopover");
+    const popOver = this.body.querySelector("#myPopover");
     //обработка клика по кнопке.
     this.button.addEventListener("click", () => {
       this.togglePopover(popOver);
